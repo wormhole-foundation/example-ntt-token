@@ -4,8 +4,9 @@ pragma solidity >=0.6.12 <0.9.0;
 import {ERC20} from "openzeppelin-contracts/contracts/token/ERC20/ERC20.sol";
 import {ERC20Burnable} from "openzeppelin-contracts/contracts/token/ERC20/extensions/ERC20Burnable.sol";
 import {BaseToken} from "src/BaseToken.sol";
+import {Ownable} from "openzeppelin-contracts/contracts/access/Ownable.sol";
 
-contract SpokeToken is BaseToken, ERC20Burnable {
+contract SpokeToken is BaseToken, ERC20Burnable, Ownable {
     error CallerNotMinter(address caller);
     error InvalidMinterZeroAddress();
 
@@ -21,7 +22,8 @@ contract SpokeToken is BaseToken, ERC20Burnable {
     }
 
     constructor(string memory _name, string memory _symbol, address _minter, address _owner)
-        BaseToken(_name, _symbol, _owner)
+        BaseToken(_name, _symbol)
+        Ownable(_owner)
     {
         minter = _minter;
     }
