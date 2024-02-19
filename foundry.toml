@@ -7,6 +7,8 @@ libs = ["lib"]
 
 [rpc_endpoints]
 sepolia = "${SEPOLIA_RPC_URL}"
+arbitrum-sepolia = "${ARB_SEPOLIA_RPC_URL}"
 
 [etherscan]
 sepolia = { key = "${ETHERSCAN_API_KEY}" }
+arbitrum-sepolia = { key = "${ARBISCAN_API_KEY}", url = "${ARBISCAN_API_URL}" }
