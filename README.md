@@ -18,9 +18,16 @@ This repository contains smart contracts for implementing multichain token deplo
 
 ## Usage
 
-1. Deploy `HubToken` on the main chain for the Hub and Spoke model.
-2. Deploy `PeerToken` on spoke chains for the Hub and Spoke model, or on all chains for the Burn and Mint model.
-3. Configure the minter address in `PeerToken` to control minting permissions.
+### Hub and Spoke Model
+
+1. Deploy `HubToken` on the main chain (Hub chain).
+2. Deploy `PeerToken` on each spoke chain.
+3. Configure the minter address in each `PeerToken` to control minting permissions.
+
+### Burn and Mint Model
+
+1. Deploy `PeerToken` contracts on all participating chains.
+2. Configure the minter address in each `PeerToken` to control minting permissions.
 
 ## Deployment
 
