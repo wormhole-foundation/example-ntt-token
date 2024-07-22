@@ -2,9 +2,9 @@
 pragma solidity ^0.8.13;
 
 import {Script, console} from "forge-std/Script.sol";
-import "../src/SpokeToken.sol";
+import "../src/PeerToken.sol";
 
-contract DeploySpoke is Script {
+contract DeployPeer is Script {
     function setUp() public {}
 
     function run() public {
@@ -12,13 +12,13 @@ contract DeploySpoke is Script {
         address ntt_manager = address(0);
         vm.startBroadcast(deployerPrivateKey);
 
-        SpokeToken t = new SpokeToken("test_ntt", "TEST_NTT", ntt_manager, msg.sender);
+        PeerToken t = new PeerToken("test_ntt", "TEST_NTT", ntt_manager, msg.sender);
 
         vm.stopBroadcast();
     }
 }
 
-contract SetSpokeMinter is Script {
+contract SetPeerMinter is Script {
     function setUp() public {}
 
     function run() public {
@@ -28,8 +28,8 @@ contract SetSpokeMinter is Script {
 
         vm.startBroadcast(deployerPrivateKey);
 
-        // setMinter to the Manager proxy on the spoke chain
-        SpokeToken t = SpokeToken(tokenAddr);
+        // setMinter to the Manager proxy on the spoke/burn chain
+        PeerToken t = PeerToken(tokenAddr);
         t.setMinter(minterAddr);
 
         vm.stopBroadcast();
