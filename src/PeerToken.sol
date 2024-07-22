@@ -6,7 +6,7 @@ import {ERC20Burnable} from "openzeppelin-contracts/contracts/token/ERC20/extens
 import {BaseToken} from "src/BaseToken.sol";
 import {Ownable} from "openzeppelin-contracts/contracts/access/Ownable.sol";
 
-contract SpokeToken is BaseToken, ERC20Burnable, Ownable {
+contract PeerToken is BaseToken, ERC20Burnable, Ownable {
     error CallerNotMinter(address caller);
     error InvalidMinterZeroAddress();
 
