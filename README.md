@@ -38,3 +38,17 @@ To deploy these contracts, you can use Forge. Here's an example of how to deploy
 ```bash
 forge create --rpc-url <SEPOLIA_RPC_URL> --private-key <PRIVATE_KEY> src/PeerToken.sol:PeerToken --constructor-args "TestBurnToken" "TBT" <MINTER_ADDRESS> <OWNER_ADDRESS>
 ```
+
+## Mint Tokens
+After deployment, you can mint tokens using the cast send command from Foundry:
+
+```bash
+cast send $TOKEN_ADDRESS \
+  "mint(address,uint256)" \
+  $RECIPIENT_ADDRESS \
+  $AMOUNT_IN_WEI \  
+  --private-key $ETH_PRIVATE_KEY \
+  --rpc-url $YOUR_RPC_URL
+```
+
+For 1000 tokens with 18 decimals, use AMOUNT_IN_WEI = 1000000000000000000000
