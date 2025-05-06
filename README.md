@@ -36,7 +36,7 @@ To deploy these contracts, you can use Forge. Here's an example of how to deploy
 [Install Foundry](https://book.getfoundry.sh/getting-started/installation)
 
 ```bash
-forge create --rpc-url <SEPOLIA_RPC_URL> --private-key <PRIVATE_KEY> src/PeerToken.sol:PeerToken --constructor-args "TestBurnToken" "TBT" <MINTER_ADDRESS> <OWNER_ADDRESS>
+forge create --broadcast --rpc-url <SEPOLIA_RPC_URL> --private-key <PRIVATE_KEY> src/PeerToken.sol:PeerToken --constructor-args "TestBurnToken" "TBT" <MINTER_ADDRESS> <OWNER_ADDRESS>
 ```
 
 ## Mint Tokens
